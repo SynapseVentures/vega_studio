@@ -7,6 +7,9 @@ export const getRouter = () => {
 
   const router = createRouter({
     routeTree,
+    // Use Vite's BASE_URL so the router matches URLs correctly both locally
+    // ("/") and on GitHub Pages ("/vega_studio/").
+    basepath: import.meta.env.BASE_URL,
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
