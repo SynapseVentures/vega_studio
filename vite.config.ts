@@ -6,10 +6,14 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+const base = process.env.BASE_URL ?? "/vega_studio/";
+
 export default defineConfig({
-  // Base path for GitHub Pages: the site is served at https://synapseventures.github.io/vega_studio/
-  // Set to '/' for local dev or custom domain deployments.
-  base: process.env.BASE_URL ?? "/vega_studio/",
+  // Vite config must be passed via the `vite` key so the lovable wrapper
+  // forwards it through to Vite (base path for GitHub Pages, etc.).
+  vite: {
+    base,
+  },
   // Skip Nitro SSR build — this is a pure client-side SPA for GitHub Pages.
   // The client build already produces all the JS/CSS assets we need.
   nitro: false,
