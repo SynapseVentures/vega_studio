@@ -13,9 +13,6 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
-    // SPA mode: disable SSR for GitHub Pages static deployment.
-    // The app is a pure client-side chart builder with no server data dependencies.
-    ssr: false,
   });
 
   return router;
