@@ -7,6 +7,12 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  // Base path for GitHub Pages: the site is served at https://synapseventures.github.io/vega_studio/
+  // Set to '/' for local dev or custom domain deployments.
+  base: process.env.BASE_URL ?? "/vega_studio/",
+  // Skip Nitro SSR build — this is a pure client-side SPA for GitHub Pages.
+  // The client build already produces all the JS/CSS assets we need.
+  nitro: false,
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
